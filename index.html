@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Interaktif | Restu</title>
+    <style>
+        /* CSS VARIABLE UNTUK WARNA */
+        :root {
+            --primary-orange: #ff7e5f;
+            --secondary-orange: #feb47b;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a00);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* BAGIAN PROFIL */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 { font-size: 24px; margin-bottom: 5px; }
+        .bio { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
+
+        /* SEKSI UMUM */
+        section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        h2 { font-size: 18px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* SERTIFIKAT & GAMBAR */
+        .img-card {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 10px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .img-card:hover { transform: scale(1.03); }
+
+        /* KONTAK LIST */
+        .contact-list { list-style: none; }
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+        .contact-item:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-3px); }
+        .contact-item img { width: 24px; height: 24px; }
+
+        /* INPUT & BUTTON */
+        .input-group { margin-top: 15px; }
+        input {
+            width: 85%;
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .btn-send {
+            background: #ffffff;
+            color: #ff6a00;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-send:hover { background: #ffe0cc; transform: scale(1.05); }
+
+        /* MODAL POPUP */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center; align-items: center;
+        }
+        .modal-box {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn { from { transform: scale(0.5); } to { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="aku.jpg" alt="Profil Restu" class="profile-img">
+    <h1>Restu Aristianto</h1>
+    <p class="bio">Web Developer Enthusiast | Depok</p>
+
+    <section>
+        <h2>Sertifikat Saya</h2>
+        <p style="font-size: 12px; margin-bottom: 10px;">Klik gambar untuk memperbesar</p>
+        <img src="sertifikat.jpg" alt="Sertifikat" class="img-card">
+    </section>
+
+    <section>
+        <h2>Hubungi Saya</h2>
+        <div class="contact-list">
+            <a href="https://wa.me/6281398098107" class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WA">
+                WhatsApp
+            </a>
+            <a href="mailto:restuaristianto@gmail.com" class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+                Gmail
+            </a>
+            <a href="https://www.google.com/maps/search/Depok" class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1865/1865269.png" alt="Maps">
+                Lokasi: Depok
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <p>Apa pendapatmu tentang web saya?</p>
+        <div class="input-group">
+            <input type="text" id="pendapat" placeholder="Tulis di sini...">
+            <br>
+            <button class="btn-send" onclick="handleKirim()">Kirim</button>
+        </div>
+    </section>
+</div>
+
+<div id="notifModal" class="modal">
+    <div class="modal-box">
+        <h2 style="color: #ff6a00; border: none;">🔥 Berhasil!</h2>
+        <p>Masukan kamu sudah terkirim. Terima kasih!</p>
+        <br>
+        <button onclick="tutupModal()" style="background: #ff6a00; color: white; border: none; padding: 8px 20px; border-radius: 10px; cursor: pointer;">Oke</button>
+    </div>
+</div>
+
+<script>
+    function handleKirim() {
+        const pesan = document.getElementById('pendapat').value;
+        if (pesan.trim() === "") {
+            alert("Isi dulu ya pendapatnya!");
+            return;
+        }
+        document.getElementById('notifModal').style.display = 'flex';
+        document.getElementById('pendapat').value = "";
+    }
+
+    function tutupModal() {
+        document.getElementById('notifModal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
